@@ -2,40 +2,70 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Резюме - Штельма Владислав-Рустам</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме — Штельма В.-Р. О.</title>
+    <!-- Зовнішні стилі -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Внутрішній стиль (для виконання вимог лаби) -->
+    <style>
+        .internal-style { color: #4a5568; font-style: italic; }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Штельма Владислав-Рустам Орестович</h1>
-        <p>Студент спеціальності «Кібербезпека» | Львівська політехніка</p>
+    <!-- Вбудований стиль (inline) та кнопка перемикання теми -->
+    <header style="background-color: #b2e4df; padding: 20px; border-radius: 12px; position: relative;">
+        <button id="theme-toggle" style="position: absolute; top: 15px; right: 15px; padding: 6px 12px; cursor: pointer; border-radius: 6px; border: 1px solid #83cfc7; background: white;">Змінити тему</button>
+        <h1 style="color: #267f79; text-align: center;">Штельма Владислав-Рустам Орестович</h1>
+        <p class="internal-style" style="text-align: center;">Студент спеціальності «Кібербезпека» | Львівська політехніка</p>
     </header>
-
-    <main>
-        <section>
-            <h2>Про мене</h2>
-            <p>Студент 2 курсу, цікавлюся вебпрограмуванням, мережевими технологіями та апаратним забезпеченням.</p>
-        </section>
-
-        <section>
+    
+    <main class="container">
+        <section class="card" id="experience">
             <h2>Досвід роботи</h2>
             <ul>
                 <li>Сфера логістики та обслуговування (Близенько, Купава).</li>
                 <li>Діагностика, обслуговування та налаштування комп'ютерної техніки.</li>
             </ul>
         </section>
-
-        <section>
+        
+        <section class="card" id="skills">
             <h2>Навички</h2>
             <ul>
-                <li>Python, C#, Git, HTML</li>
+                <li>Python, C#, Git, HTML, CSS</li>
                 <li>Cisco Packet Tracer, налаштування мережевої топології</li>
                 <li>Збірка ПК та апаратна діагностика</li>
             </ul>
         </section>
-    </main>
 
+        <!-- Блок для динамічних відгуків із сервера (Варіант 25) -->
+        <section class="card" id="reviews">
+            <h2>Коментарі попередніх роботодавців</h2>
+            <div id="comments-container">Завантаження відгуків із сервера...</div>
+        </section>
+    </main>
+    
     <footer>
-        <p>Контакти: <a href="mailto:vladyslav@example.com">Написати мені</a></p>
+        <p>Контакти: <a href="mailto:vladyslav@example.com" class="btn-link">Написати мені</a></p>
+        <!-- Блок для виведення системної інформації з LocalStorage -->
+        <p id="system-info" style="font-size: 0.85rem; margin-top: 10px; opacity: 0.8;"></p>
     </footer>
+
+    <!-- Модальне вікно форми зворотного зв'язку (Formspree) -->
+    <div id="feedback-modal" class="modal">
+        <div class="modal-content">
+            <h3 style="color: #267f79; margin-top: 0;">Форма зворотного зв'язку</h3>
+            <form action="https://formspree.io/f/mdeerrjy" method="POST">
+                <input type="text" name="name" placeholder="Ім'я" required style="width: 100%; margin-bottom: 10px; padding: 8px;">
+                <input type="email" name="email" placeholder="Email" required style="width: 100%; margin-bottom: 10px; padding: 8px;">
+                <input type="tel" name="phone" placeholder="Номер телефону" required style="width: 100%; margin-bottom: 10px; padding: 8px;">
+                <textarea name="message" placeholder="Повідомлення" rows="3" required style="width: 100%; margin-bottom: 10px; padding: 8px;"></textarea>
+                <button type="submit" style="padding: 8px 16px; cursor: pointer; background: #267f79; color: white; border: none; border-radius: 4px;">Надіслати</button>
+                <button type="button" id="close-modal" style="padding: 8px 16px; margin-left: 10px; cursor: pointer; border-radius: 4px; border: 1px solid #ccc;">Закрити</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Підключення твого файлу скрипта -->
+    <script src="script.js"></script>
 </body>
 </html>

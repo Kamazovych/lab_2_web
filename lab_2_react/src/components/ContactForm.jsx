@@ -5,7 +5,7 @@ function ContactForm({ theme }) {
 
     useEffect(() => {
         // Вікно вискочить через 60 секунд (60000 мс)
-        // Для тестування можеш змінити 60000 на 5000 (5 секунд), щоб не чекати довго!
+        // якщо користувач закрив його раніше, таймер буде очищений 
         const timer = setTimeout(() => {
             setIsOpen(true);
         }, 60000); 
@@ -28,7 +28,7 @@ function ContactForm({ theme }) {
                 </button>
                 <h2 className="text-2xl font-bold mb-6 text-center">Залишити відгук</h2>
                 
-                {/* ТУТ ВСТАВ СВІЙ ENDPOINT ЗАМІСТЬ YOUR_ENDPOINT */}
+                {/* тут я вставив своє посилання у Formspree */}
                 <form action="https://formspree.io/f/mdeerrjy" method="POST" className="flex flex-col gap-4">
                     <input type="text" name="name" placeholder="Ваше ім'я" required className={`p-3 rounded border focus:outline-none focus:ring-2 focus:ring-blue-500 ${theme === 'dark' ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-300 text-slate-900'}`} />
                     <input type="email" name="email" placeholder="Ваш Email" required className={`p-3 rounded border focus:outline-none focus:ring-2 focus:ring-blue-500 ${theme === 'dark' ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-50 border-slate-300 text-slate-900'}`} />
